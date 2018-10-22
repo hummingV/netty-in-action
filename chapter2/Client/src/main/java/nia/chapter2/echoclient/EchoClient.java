@@ -2,7 +2,6 @@ package nia.chapter2.echoclient;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
@@ -10,16 +9,21 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.timeout.IdleStateHandler;
-import io.netty.handler.timeout.WriteTimeoutHandler;
-import io.netty.util.CharsetUtil;
+import org.reflections.Reflections;
+import org.reflections.scanners.ResourcesScanner;
+import org.reflections.scanners.SubTypesScanner;
+import org.reflections.util.ClasspathHelper;
+import org.reflections.util.ConfigurationBuilder;
+import org.reflections.util.FilterBuilder;
 
 import java.net.InetSocketAddress;
-import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.logging.Logger;
 
 /**
  * Listing 2.4 Main class for the client
@@ -30,14 +34,20 @@ public class EchoClient {
     private final String host;
     private final int port;
     public static volatile long start;
+    private static final Logger log = Logger.getLogger(EchoClient.class.getName());
 
     public EchoClient(String host, int port) {
         this.host = host;
         this.port = port;
     }
 
-    public void start()
-        throws Exception {
+    public void start() throws Exception{
+        loadNettyClasses();
+        test_RepeatBootstrapAndConnect();
+    }
+
+    public void test_RepeatBootstrapAndConnect()
+            throws Exception {
         final AtomicLong serial = new AtomicLong();
         EventLoopGroup eventLoop = new NioEventLoopGroup(0, new ThreadFactory() {
             @Override
@@ -49,29 +59,132 @@ public class EchoClient {
             }
         });
         try {
-            start = new Date().getTime();
-            Bootstrap b = new Bootstrap()
+            for (int i = 0; i < 1000; i++) {
+                log.info("connecting to port" + (port + (i % 10)));
+                //bootstrap
+                start = new Date().getTime();
+                Bootstrap b = new Bootstrap()
+                        .group(eventLoop)
+                        .channel(NioSocketChannel.class)
+                        .option(ChannelOption.TCP_NODELAY, true)
+                        .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
+                        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 50)
+                        .handler(new ChannelInitializer<SocketChannel>() {
+                            @Override
+                            public void initChannel(SocketChannel ch)
+                                    throws Exception {
+                                ch.pipeline().addLast(
+                                        new EchoClientHandler());
+                            }
+                        });
+                log.info("bootstrap: " + (new Date().getTime() - EchoClient.start));
+                //connect
+                EchoClient.start = new Date().getTime();
+                ChannelFuture f = b.connect(new InetSocketAddress(host, port + (i % 10))).sync();
+                //wait for close
+                f.channel().closeFuture().sync();
+                Thread.sleep(2000);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        } finally {
+            eventLoop.shutdownGracefully().sync();
+        }
+    }
+
+    public void test_100Connections() throws Exception {
+
+        loadNettyClasses();
+
+        final AtomicLong serial = new AtomicLong();
+        EventLoopGroup eventLoop = new NioEventLoopGroup(0, new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread thread = new Thread(r);
+                thread.setName("CSEventLoop-" + serial.getAndIncrement());
+                thread.setPriority(Thread.MAX_PRIORITY);
+                return thread;
+            }
+        });
+        //bootstrap
+        start = new Date().getTime();
+        Bootstrap b = new Bootstrap()
                 .group(eventLoop)
                 .channel(NioSocketChannel.class)
-                .remoteAddress(new InetSocketAddress(host, port))
-                    .option(ChannelOption.TCP_NODELAY,  true)
-                    .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
-                    .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 50)
+                .option(ChannelOption.TCP_NODELAY, true)
+                .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
+                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 50)
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     public void initChannel(SocketChannel ch)
-                        throws Exception {
+                            throws Exception {
                         ch.pipeline().addLast(
-                             new EchoClientHandler());
+                                new EchoClientHandler());
                     }
                 });
-            System.out.println("bootstrap: " + (new Date().getTime() - EchoClient.start));
-            EchoClient.start = new Date().getTime();
-            ChannelFuture f = b.connect();
-            Thread.sleep(1000000); //don't exit the process
-            f.channel().closeFuture().sync();
+        log.info("bootstrap: " + (new Date().getTime() - EchoClient.start));
+        try {
+            for (int i = 0; i < 100; i++) {
+                log.info("connecting to port" + (port + (i % 10)));
+                //connect
+                EchoClient.start = new Date().getTime();
+                ChannelFuture f = b.connect(new InetSocketAddress(host, port + (i % 10))).sync();
+                //wait for close
+                f.channel().closeFuture().sync();
+                Thread.sleep(2000);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
         } finally {
             eventLoop.shutdownGracefully().sync();
+        }
+    }
+
+
+    private void loadNettyClasses() throws Exception {
+        List<ClassLoader> classLoadersList = new ArrayList<>();
+        classLoadersList.add(ClasspathHelper.contextClassLoader());
+        classLoadersList.add(ClasspathHelper.staticClassLoader());
+        classLoadersList.add(ClassLoader.getSystemClassLoader());
+
+        Reflections r = new Reflections(new ConfigurationBuilder()
+                .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+                .setUrls(ClasspathHelper.forClassLoader(classLoadersList.toArray(new ClassLoader[0])))
+                .filterInputsBy(new FilterBuilder()
+                        .include(FilterBuilder.prefix("io.netty"))
+                        .include(FilterBuilder.prefix("java"))
+                        .include(FilterBuilder.prefix("sun.net"))
+                        .include(FilterBuilder.prefix("java.net"))
+                        .include(FilterBuilder.prefix("java.nio"))));
+
+        Set<Class<?>> classes = r.getSubTypesOf(Object.class);
+
+        Class.forName("sun.nio.ch.SelChImpl");
+        Class.forName("sun.nio.ch.SocketChannelImpl");
+        Class.forName("sun.nio.ch.SocketDispatcher");
+        Class.forName("sun.nio.ch.Net");
+        Class.forName("java.net.StandardProtocolFamily");
+        Class.forName("java.net.Socket");
+        Class.forName("sun.nio.ch.SocketAdaptor");
+        Class.forName("sun.nio.ch.ExtendedSocketOption");
+        Class.forName("sun.nio.ch.ExtendedSocketOption$1");
+        Class.forName("sun.net.ExtendedOptionsImpl");
+        Class.forName("jdk.net.SocketFlow");
+        Class.forName("sun.nio.ch.SocketOptionRegistry");
+        Class.forName("sun.nio.ch.OptionKey");
+        Class.forName("java.nio.channels.spi.AbstractSelector$1");
+        Class.forName("java.nio.channels.spi.AbstractSelectionKey");
+        Class.forName("sun.nio.ch.SelectionKeyImpl");
+        Class.forName("nia.chapter2.echoclient.EchoClientHandler");
+
+        for (Class clazz : classes) {
+            try {
+                Class.forName(clazz.getName());
+            } catch (Throwable e) {
+
+            }
         }
     }
 

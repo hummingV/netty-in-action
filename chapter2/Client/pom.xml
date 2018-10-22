@@ -13,6 +13,15 @@
 
     <name>Chapter 2. Echo Client</name>
 
+
+    <dependencies>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.11</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
