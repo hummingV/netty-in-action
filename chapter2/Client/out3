@@ -1,0 +1,345 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< nia:echo-client >---------------------------
+[INFO] Building Chapter 2. Echo Client 2.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.6.1:clean (default-clean) @ echo-client ---
+[INFO] Deleting /Users/kaung/personal/netty-in-action/chapter2/Client/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ echo-client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ echo-client ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /Users/kaung/personal/netty-in-action/chapter2/Client/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ echo-client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/kaung/personal/netty-in-action/chapter2/Client/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ echo-client ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ echo-client ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (default-jar) @ echo-client ---
+[INFO] Building jar: /Users/kaung/personal/netty-in-action/chapter2/Client/target/echo-client-2.0-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> exec-maven-plugin:1.2.1:java (default-cli) > validate @ echo-client >>>
+[INFO] 
+[INFO] <<< exec-maven-plugin:1.2.1:java (default-cli) < validate @ echo-client <<<
+[INFO] 
+[INFO] 
+[INFO] --- exec-maven-plugin:1.2.1:java (default-cli) @ echo-client ---
+Can't set level for java.util.logging.ConsoleHandler
+[1540171534373] [nia.chapter2.echoclient.EchoClient loadNettyClasses] [INFO   ] Loading netty classes 
+[1540171536934] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] bootstrap: 0 
+[1540171536934] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8880 
+[1540171536940] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8881 
+[1540171536941] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8882 
+[1540171536942] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8883 
+[1540171536943] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8884 
+[1540171536945] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8885 
+[1540171536948] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8886 
+[1540171536950] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8887 
+[1540171536952] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8888 
+[1540171536953] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 19 
+[1540171536953] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 11 
+[1540171536953] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 2 
+[1540171536954] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 13 
+[1540171536955] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 14 
+[1540171536953] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 3 
+[1540171536954] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 10 
+[1540171536953] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 6 
+[1540171536957] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8889 
+[1540171536957] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8880 
+[1540171536957] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8881 
+[1540171536962] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8882 
+[1540171536963] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 9 
+[1540171536963] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 8 
+[1540171536965] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 11 
+[1540171536966] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 11 
+[1540171536967] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 11 
+[1540171536967] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 11 
+[1540171536967] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 11 
+[1540171536971] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 14 
+[1540171536968] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8883 
+[1540171536968] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 13 
+[1540171536974] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 13 
+[1540171536974] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 2 
+[1540171536974] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 19 
+[1540171536975] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 13 
+[1540171536975] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171536975] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 18 
+[1540171536976] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171536976] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171536976] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171536977] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8884 
+[1540171536978] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171536978] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8885 
+[1540171536979] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171536979] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171536980] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171536980] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8886 
+[1540171536981] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 2 
+[1540171536981] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8887 
+[1540171536982] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171536982] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171536983] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171536983] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8888 
+[1540171536984] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 2 
+[1540171536986] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171536987] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 2 
+[1540171536986] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8889 
+[1540171536989] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 2 
+[1540171536991] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8880 
+[1540171536992] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171536993] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8881 
+[1540171536993] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171536993] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171536994] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171536996] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8882 
+[1540171536997] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 3 
+[1540171536997] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171536997] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8883 
+[1540171536998] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171536999] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8884 
+[1540171537000] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171536999] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537000] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8885 
+[1540171537001] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537000] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537002] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8886 
+[1540171537002] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537002] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537003] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537003] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8887 
+[1540171537004] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 2 
+[1540171537004] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537005] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537005] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8888 
+[1540171537006] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8889 
+[1540171537006] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537006] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537007] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537008] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8880 
+[1540171537008] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537010] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537010] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537012] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537013] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8881 
+[1540171537013] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8882 
+[1540171537013] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537015] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8883 
+[1540171537015] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537015] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537016] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537018] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8884 
+[1540171537018] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 2 
+[1540171537019] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537020] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8885 
+[1540171537020] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537021] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8886 
+[1540171537021] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537021] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537022] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8887 
+[1540171537022] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537022] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537024] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537025] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8888 
+[1540171537025] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 2 
+[1540171537026] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537026] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537027] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8889 
+[1540171537027] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537028] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8880 
+[1540171537028] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537029] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537030] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537031] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537033] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8881 
+[1540171537034] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537034] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8882 
+[1540171537034] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537034] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8883 
+[1540171537035] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537036] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537036] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537036] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8884 
+[1540171537037] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8885 
+[1540171537037] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537037] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537038] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537038] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537038] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8886 
+[1540171537039] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537039] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8887 
+[1540171537039] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537040] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8888 
+[1540171537041] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537041] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537042] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537042] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8889 
+[1540171537043] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537043] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8880 
+[1540171537044] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537043] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537046] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537047] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 2 
+[1540171537047] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8881 
+[1540171537047] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537048] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8882 
+[1540171537048] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537049] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8883 
+[1540171537049] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537049] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537049] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8884 
+[1540171537050] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537050] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537050] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537051] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537050] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8885 
+[1540171537051] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537052] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8886 
+[1540171537052] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537053] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537053] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537053] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8887 
+[1540171537054] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537055] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537055] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8888 
+[1540171537056] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537056] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537056] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8889 
+[1540171537057] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8880 
+[1540171537057] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537057] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537058] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537059] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537060] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537061] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8881 
+[1540171537061] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8882 
+[1540171537061] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537061] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537062] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537062] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537061] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8883 
+[1540171537063] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8884 
+[1540171537063] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537064] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8885 
+[1540171537065] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537064] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537066] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537066] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537066] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8886 
+[1540171537066] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8887 
+[1540171537067] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537067] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537067] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537068] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8888 
+[1540171537068] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537069] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8889 
+[1540171537069] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537069] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537070] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8880 
+[1540171537070] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537070] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537071] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537071] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537071] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8881 
+[1540171537072] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537072] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8882 
+[1540171537072] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537073] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8883 
+[1540171537073] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537073] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537074] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537074] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537074] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8884 
+[1540171537075] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537075] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537076] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8885 
+[1540171537076] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537077] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8886 
+[1540171537077] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537078] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537078] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537078] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8887 
+[1540171537079] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537079] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537080] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8888 
+[1540171537080] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8889 
+[1540171537080] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537080] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537081] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8880 
+[1540171537082] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537081] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537083] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537083] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537083] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8881 
+[1540171537084] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537084] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537085] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8882 
+[1540171537086] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537087] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 4 
+[1540171537088] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 2 
+[1540171537088] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8883 
+[1540171537089] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537089] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537094] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8884 
+[1540171537095] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8885 
+[1540171537095] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537096] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8886 
+[1540171537096] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537096] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537097] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537099] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537100] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8887 
+[1540171537100] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537101] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537101] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8888 
+[1540171537101] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537102] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8889 
+[1540171537102] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537102] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8880 
+[1540171537102] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 0 
+[1540171537103] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537103] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537104] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8881 
+[1540171537104] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8882 
+[1540171537105] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8883 
+[1540171537106] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8884 
+[1540171537106] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8885 
+[1540171537106] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8886 
+[1540171537107] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537107] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8887 
+[1540171537105] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537108] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537109] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537105] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537109] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8888 
+[1540171537108] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537107] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 2 
+[1540171537107] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537106] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 1 
+[1540171537111] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537111] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537110] [nia.chapter2.echoclient.EchoClient test_NConnections] [INFO   ] connecting to port8889 
+[1540171537110] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537110] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 2 
+[1540171537113] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 3 
+[1540171537111] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[1540171537113] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537114] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537111] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 1 
+[1540171537116] [nia.chapter2.echoclient.EchoOnceClientHandler channelActive] [INFO   ] channelActive: 4 
+[1540171537116] [nia.chapter2.echoclient.EchoOnceClientHandler channelRead0] [INFO   ] received: 0 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 7.917 s
+[INFO] Finished at: 2018-10-21T18:25:40-07:00
+[INFO] ------------------------------------------------------------------------

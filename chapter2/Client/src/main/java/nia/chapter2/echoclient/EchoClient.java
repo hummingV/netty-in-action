@@ -43,7 +43,7 @@ public class EchoClient {
 
     public void start() throws Exception{
         loadNettyClasses();
-        test_NConnections(Integer.parseInt(System.getProperty("connectionCount")));
+        test_NConnections(Integer.parseInt(System.getProperty("connection.count")));
     }
 
     public void test_RepeatBootstrapAndConnect()
@@ -159,9 +159,9 @@ public class EchoClient {
                 .setUrls(ClasspathHelper.forClassLoader(classLoadersList.toArray(new ClassLoader[0])))
                 .filterInputsBy(new FilterBuilder()
                         .include(FilterBuilder.prefix("io.netty"))
-                        .include(FilterBuilder.prefix("java"))
-                        .include(FilterBuilder.prefix("sun.net"))
-                        .include(FilterBuilder.prefix("java.net"))
+//                        .include(FilterBuilder.prefix("java"))
+//                        .include(FilterBuilder.prefix("sun.net"))
+//                        .include(FilterBuilder.prefix("java.net"))
                         .include(FilterBuilder.prefix("java.nio"))));
 
         Set<Class<?>> classes = r.getSubTypesOf(Object.class);
