@@ -1,5 +1,6 @@
 package nia.chapter2.echoclient;
 
+import com.google.common.util.concurrent.Futures;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.ChannelFuture;
@@ -33,7 +34,6 @@ import java.util.logging.Logger;
 public class EchoClient {
     private final String host;
     private final int port;
-    public static volatile long start;
     private static final Logger log = Logger.getLogger(EchoClient.class.getName());
 
     public EchoClient(String host, int port) {
@@ -43,7 +43,7 @@ public class EchoClient {
 
     public void start() throws Exception{
         loadNettyClasses();
-        test_RepeatBootstrapAndConnect();
+        test_NConnections(Integer.parseInt(System.getProperty("connectionCount")));
     }
 
     public void test_RepeatBootstrapAndConnect()
@@ -62,28 +62,27 @@ public class EchoClient {
             for (int i = 0; i < 1000; i++) {
                 log.info("connecting to port" + (port + (i % 10)));
                 //bootstrap
-                start = new Date().getTime();
+                final long bootstrapStart = new Date().getTime();
                 Bootstrap b = new Bootstrap()
                         .group(eventLoop)
                         .channel(NioSocketChannel.class)
                         .option(ChannelOption.TCP_NODELAY, true)
                         .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
-                        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 50)
-                        .handler(new ChannelInitializer<SocketChannel>() {
-                            @Override
-                            public void initChannel(SocketChannel ch)
-                                    throws Exception {
-                                ch.pipeline().addLast(
-                                        new EchoClientHandler());
-                            }
-                        });
-                log.info("bootstrap: " + (new Date().getTime() - EchoClient.start));
+                        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 50);
+                log.info("bootstrap: " + (new Date().getTime() - bootstrapStart));
                 //connect
-                EchoClient.start = new Date().getTime();
-                ChannelFuture f = b.connect(new InetSocketAddress(host, port + (i % 10))).sync();
+                final long connStart = new Date().getTime();
+                ChannelFuture f= b.handler(new ChannelInitializer<SocketChannel>() {
+                    @Override
+                    public void initChannel(SocketChannel ch)
+                            throws Exception {
+                        ch.pipeline().addLast(
+                                new EchoOnceClientHandler(connStart));
+                    }
+                }).connect(new InetSocketAddress(host, port + (i % 10)));
                 //wait for close
                 f.channel().closeFuture().sync();
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,10 +92,9 @@ public class EchoClient {
         }
     }
 
-    public void test_100Connections() throws Exception {
 
-        loadNettyClasses();
-
+    public void test_NConnections(int N)
+            throws Exception {
         final AtomicLong serial = new AtomicLong();
         EventLoopGroup eventLoop = new NioEventLoopGroup(0, new ThreadFactory() {
             @Override
@@ -108,31 +106,34 @@ public class EchoClient {
             }
         });
         //bootstrap
-        start = new Date().getTime();
+        final long bootstrapStart = new Date().getTime();
         Bootstrap b = new Bootstrap()
                 .group(eventLoop)
                 .channel(NioSocketChannel.class)
                 .option(ChannelOption.TCP_NODELAY, true)
                 .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
-                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 50)
-                .handler(new ChannelInitializer<SocketChannel>() {
+                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 50);
+        log.info("bootstrap: " + (new Date().getTime() - bootstrapStart));
+
+        List<ChannelFuture> closeFutures = new ArrayList<>();
+        try {
+            for (int i = 0; i < N; i++) {
+                log.info("connecting to port" + (port + (i % 10)));
+                //connect
+                final long connStart = new Date().getTime();
+                ChannelFuture f= b.handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     public void initChannel(SocketChannel ch)
                             throws Exception {
                         ch.pipeline().addLast(
-                                new EchoClientHandler());
+                                new EchoOnceClientHandler(connStart));
                     }
-                });
-        log.info("bootstrap: " + (new Date().getTime() - EchoClient.start));
-        try {
-            for (int i = 0; i < 100; i++) {
-                log.info("connecting to port" + (port + (i % 10)));
-                //connect
-                EchoClient.start = new Date().getTime();
-                ChannelFuture f = b.connect(new InetSocketAddress(host, port + (i % 10))).sync();
-                //wait for close
-                f.channel().closeFuture().sync();
-                Thread.sleep(2000);
+                }).connect(new InetSocketAddress(host, port + (i % 10)));
+                closeFutures.add(f);
+            }
+            //wait for all channels to close
+            for(ChannelFuture closeFuture: closeFutures){
+                closeFuture.sync();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -142,8 +143,12 @@ public class EchoClient {
         }
     }
 
-
+    /**
+     * sometimes throwing SIGSEGV errors
+     * @throws Exception
+     */
     private void loadNettyClasses() throws Exception {
+        log.info("Loading netty classes");
         List<ClassLoader> classLoadersList = new ArrayList<>();
         classLoadersList.add(ClasspathHelper.contextClassLoader());
         classLoadersList.add(ClasspathHelper.staticClassLoader());
